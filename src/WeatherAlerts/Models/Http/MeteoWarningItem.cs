@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace WeatherAlerts.Models.Http;
 
-internal record MeteoWarningItem
+public record MeteoWarningItem
 {
     [JsonProperty("0")]
     public int From { get; set; }

@@ -1,8 +1,10 @@
+using Common.Helpers;
+
 namespace WeatherAlerts.Models;
 
-internal record MeteoWarning
+public record MeteoWarning
 {
-    public DateTime Timestamp { get; init; } = DateTime.UtcNow;
+    public DateTime Timestamp { get; init; } = DateTimeProvider.UtcNow;
     public DateTime StartsAt { get; init; }
     public DateTime EndsAt { get; init; } 
     public MeteoWarningLevel Level { get; init; }

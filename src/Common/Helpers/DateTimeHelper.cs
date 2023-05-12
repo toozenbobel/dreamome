@@ -2,16 +2,23 @@ namespace Common.Helpers;
 
 public static class DateTimeHelper
 {
-    public static System.DateTime FromUnixTimeToUtc(long unixTime)
+    public static DateTime FromUnixTimeToUtc(long unixTime)
     {
-        var dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
         dtDateTime = dtDateTime.AddSeconds(unixTime).ToUniversalTime();
         return dtDateTime;
     }
-
-    public static System.DateTime FromUnixTimeToLocal(long unixTime)
+    
+    public static DateTime FromUnixTime(long unixTime)
     {
-        var dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Local);
+        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        dtDateTime = dtDateTime.AddSeconds(unixTime);
+        return dtDateTime;
+    }
+
+    public static DateTime FromUnixTimeToLocal(long unixTime)
+    {
+        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
         dtDateTime = dtDateTime.AddSeconds(unixTime).ToLocalTime();
         return dtDateTime;
     }

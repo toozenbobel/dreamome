@@ -1,6 +1,6 @@
 namespace WeatherAlerts.Models;
 
-internal enum MeteoWarningLevel
+public enum MeteoWarningLevel
 {
     Trivial = 0,
     Yellow = 1,

@@ -35,8 +35,8 @@ internal class MeteoWarningsUpdateService : BackgroundService
             {
                 Log.Information("Started updating weather alerts");
 
-                var service = scope.ServiceProvider.GetRequiredService<IMeteoWarningsService>();
-                var result =  await service.GetMeteoWarnings();
+                var dumper = scope.ServiceProvider.GetRequiredService<IMeteoWarningsDumper>();
+                await dumper.LoadAndDump();
 
                 Log.Information("Finished processing weather alerts");
             }

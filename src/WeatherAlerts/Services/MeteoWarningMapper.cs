@@ -8,8 +8,8 @@ internal static class MeteoWarningMapper
 {
     public static MeteoWarning Map(MeteoWarningItem entity)
     {
-        var startsAt = DateTimeHelper.FromUnixTimeToLocal(entity.From);
-        var endsAt = DateTimeHelper.FromUnixTimeToLocal(entity.To);
+        var startsAt = DateTimeHelper.FromUnixTime(entity.From);
+        var endsAt = DateTimeHelper.FromUnixTime(entity.To);
 
         var type = MeteoWarningType.General;
         var level = MeteoWarningLevel.Trivial;
@@ -29,7 +29,7 @@ internal static class MeteoWarningMapper
             };
         }
         
-        if (iconString == "000" || iconString == "001")
+        if (iconString is "000" or "001")
         {
             level = MeteoWarningLevel.Trivial;
             type = MeteoWarningType.None;
@@ -58,7 +58,7 @@ internal static class MeteoWarningMapper
                     break;
             }
 
-            var typeValue = iconString.Substring(1);
+            var typeValue = iconString[1..];
 
             if (int.TryParse(typeValue, out var typeId))
             {
