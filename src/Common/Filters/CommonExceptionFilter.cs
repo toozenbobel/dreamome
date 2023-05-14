@@ -6,7 +6,7 @@ namespace Common.Filters;
 
 public class CommonExceptionFilter
 {
-    public ExceptionHandleResult HandleException(Exception exception)
+    public virtual ExceptionHandleResult HandleException(Exception exception)
     {
         var handled = true;
         string exceptionKey;

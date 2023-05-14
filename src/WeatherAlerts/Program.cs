@@ -35,9 +35,7 @@ builder.Services.AddScoped<IMeteoWarningsService, MeteoWarningsService>();
 builder.Services.AddScoped<IMeteoWarningsDumper, MeteoWarningsDumper>();
 builder.Services.AddHostedService<MeteoWarningsUpdateService>();
 
-builder.Services.Configure<InfluxSettings>(builder.Configuration.GetSection("Influx"));
-builder.Services.AddScoped<IInfluxManagementClient, InfluxManagementClient>();
-builder.Services.AddScoped<IInfluxClient, InfluxClient>();
+builder.Services.AddInflux(builder.Configuration);
 
 var app = builder.Build();
 

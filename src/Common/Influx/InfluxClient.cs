@@ -1,10 +1,12 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using InfluxDB.Client;
 using InfluxDB.Client.Api.Domain;
 using Microsoft.Extensions.Options;
 
 namespace Common.Influx;
 
+[ExcludeFromCodeCoverage]
 public class InfluxClient : IInfluxClient
 {
     private readonly InfluxSettings _settings;
