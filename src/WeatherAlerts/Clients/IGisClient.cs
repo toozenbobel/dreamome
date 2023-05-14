@@ -4,7 +4,7 @@ using WeatherAlerts.Models.Http;
 
 namespace WeatherAlerts.Clients;
 
-internal interface IGisClient
+public interface IGisClient
 {
     Task<ReadOnlyCollection<MeteoWarningItem>> GetMeteoWarnings(MeteoWarningHoursRange range);
 }

@@ -22,7 +22,7 @@ internal class GisClient : IGisClient
     
     public async Task<ReadOnlyCollection<MeteoWarningItem>> GetMeteoWarnings(MeteoWarningHoursRange range)
     {
-        var url = $"{GisApi.Data}?id_fed={_settings.FederalDistrictId}&type={range}&lang=1";
+        var url = $"{GisApi.Data}?id_fed={_settings.FederalDistrictId}&type={range.Value}&lang=1";
 
         var responseMessage = await _httpClient.GetAsync(url);
 

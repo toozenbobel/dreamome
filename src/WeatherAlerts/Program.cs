@@ -28,7 +28,7 @@ builder.Services.AddTransient<CommonExceptionFilter>();
 builder.Services.Configure<AlertsSettings>(builder.Configuration.GetSection("AlertSettings"));
 builder.Services.AddHttpClient<IGisClient, GisClient>(opt =>
 {
-    opt.BaseAddress = new Uri("https://meteoinfo.ru");
+    opt.BaseAddress = new Uri(GisApi.BaseUrl);
 });
 builder.Services.AddSingleton<IMeteoWarningMerger, MeteoWarningMerger>();
 builder.Services.AddScoped<IMeteoWarningsService, MeteoWarningsService>();

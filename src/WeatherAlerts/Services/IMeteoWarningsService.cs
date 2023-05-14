@@ -2,7 +2,7 @@ using WeatherAlerts.Models;
 
 namespace WeatherAlerts.Services;
 
-internal interface IMeteoWarningsService
+public interface IMeteoWarningsService
 {
     Task<MeteoWarningsResult> GetMeteoWarnings();
 }
