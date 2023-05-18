@@ -14,17 +14,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.AddSecrets();
 builder.Host.AddSerilog();
 
+builder.Services.AddTransient<CommonExceptionFilter>();
 builder.Services.AddFilters();
-
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-
 builder.Services.AddValidatorsFromAssemblies(new[] { typeof(Program).Assembly });
-
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 builder.AddSwagger("Weather Alerts API");
 
-builder.Services.AddTransient<CommonExceptionFilter>();
 builder.Services.Configure<AlertsSettings>(builder.Configuration.GetSection("AlertSettings"));
 builder.Services.AddHttpClient<IGisClient, GisClient>(opt =>
 {
@@ -62,7 +59,5 @@ app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
-app.MapGet("/", () => "Hello World!");
 
 app.Run();
