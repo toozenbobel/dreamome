@@ -1,0 +1,14 @@
+﻿{
+  "profiles": {
+    "VoiceService": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Alice__EntityId" : "media_player.yandex_station_m10fzv2006ewkb",
+        "HomeAssistant__Host" : "http://192.168.3.100:8123"
+      }
+    }
+  }
+}
